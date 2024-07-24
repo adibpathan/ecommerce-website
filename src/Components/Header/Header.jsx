@@ -1,17 +1,18 @@
 import React from "react";
 import Logo from '../../assets/images/logo.png'
 import { Link } from "react-router-dom";
-import CountryDropdown from "../../CountryDropdown/CountryDropdown";
-import { IoIosSearch } from "react-icons/io";
+import CountryDropdown from "../CountryDropdown/CountryDropdown";
 import Button from '@mui/material/Button';
 import { FiUser } from "react-icons/fi";
 import { IoBagOutline } from "react-icons/io5";
+import SearchBox from "./SearchBox";
+import Navigation from "./Navigation";
 
 const Header = () => {
   return (
     <>
       <div className="headerWrapper">
-        <div className="top-strip bg-purple">
+        <div className="top-strip bg-blue">
             <div className="container">
                 <p className="mb-0 mt-0 text-center">Dut to the <b>COVID 19</b> epidemic, orders may be processed with a slight delay</p>
             </div>
@@ -21,17 +22,12 @@ const Header = () => {
             <div className="container">
                 <div className="row">
                     <div className="logoWrapper d-flex align-items-center col-sm-2">
-                        <Link to={'/'}><img src={Logo}></img></Link>
+                        <Link to={'/'}><img src={Logo} alt="logo"></img></Link>
                     </div>
                     <div className="col-sm-10 d-flex align-items-center part2">
                         <CountryDropdown/>
 
-                        {/* header search bar start here  */}
-                        <div className="headerSearch ml-3 mr-3">
-                          <input type="text" placeholder="Search for products"/>
-                          <Button><IoIosSearch/></Button>
-                        </div>
-                        {/* header search bar end here  */}
+                        <SearchBox/>
 
                         <div className="part3 d-flex align-items-center ml-auto">
                           <Button className="circle mr-3"><FiUser/></Button>
@@ -48,6 +44,7 @@ const Header = () => {
                 </div>
             </div>
         </header>
+        <Navigation/>
       </div>
 
     </>
